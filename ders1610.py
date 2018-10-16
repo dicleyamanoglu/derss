@@ -24,10 +24,10 @@ class maliyetHesaplama(QDialog):
         self.yatirimYil.setValue(1)
         grid.addWidget(self.yatirimYil,2,1)
 #toplam gelir label eklendi
-        grid.addWidget(QLabel("Toplam Gelir:"),3,0)
+        grid.addWidget(QLabel("Toplam Gider:"),3,0)
 #toplam gelir label label eklendi
-        self.toplamGelir=QLabel("")
-        grid.addWidget(self.toplamGelir,3,1)
+        self.toplamGider=QLabel("")
+        grid.addWidget(self.toplamGider,3,1)
 #şirketin durumu label eklendi
         grid.addWidget(QLabel("Şirketin Durumu:"),4,0)
 #şirketin durumu label label eklendi
@@ -46,8 +46,17 @@ class maliyetHesaplama(QDialog):
         saMa=int(self.sabitMaliyet.text())
         deMa=int(self.degiskenMaliyet.text())
         yaYi=int(self.yatirimYil.text())
-        tgelir=saMa+(deMa*yaYi)
-        self.toplamGelir.setText('<font color="purple"><b>%0.1f</b></font>'%tgelir)
+        tgider=saMa+(deMa*yaYi)
+        self.toplamGider.setText('<font color="purple"><b>%0.1f</b></font>'%tgider)
+        tgelir=15000
+        kar=tgelir-tgider
+        if kar>0:
+            self.sirketDurum.setText('Şirketiniz kar etmiştir.')
+        elif(kar<0):
+            self.sirketDurum.setText('Şirketiniz zarar etmiştir.')
+        else:
+            self.sirketDurum.setText('Şirketiniz başabaş noktasındadır.')
+            
 uygulama=QApplication([])
 pencere=maliyetHesaplama()
 pencere.show()
