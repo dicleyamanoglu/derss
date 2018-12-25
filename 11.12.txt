@@ -1,0 +1,182 @@
+import numpy as np
+
+liste=[1,2,3]#normal python listesi
+
+numpyliste=np.array([1,2,3]) #numpy dizi
+
+for e in liste:
+    print(e)
+
+for e in numpyliste:
+    print(e)
+
+------------------------------------------------------------------------------
+
+import numpy as np
+import sys
+
+liste=range(1000)
+
+print("liste hafiza:",sys.getsizeof(5)*len(liste)) #listenin hafizada kapladigi yer
+
+numpyliste=np.arange(1000)
+print("numpy hafiza:",numpyliste.nbytes) #numpy dizisi hafizada kapladigi yer
+
+------------------------------------------------------------------------------
+
+import numpy as np
+import time
+import sys
+
+boyut=1000000
+#python liste
+liste1=range(boyut)
+liste2=range(boyut)
+
+#numpy dizi
+numpydizi1=np.arange(boyut)
+numpydizi2=np.arange(boyut)
+
+baslangicZamani=time.time()
+
+sonuc=[(x+y) for x,y in zip(liste1,liste2)]
+
+print("Python liste zaman:",(time.time()-baslangicZamani)*1000)
+
+
+baslangicZamani=time.time()
+sonuc=numpydizi1+numpydizi2
+
+print("Numpy dizi zaman:",(time.time()-baslangicZamani)*1000)
+
+--------------------------------------------------------------------------
+
+import numpy as np
+
+liste=[1,2,3]
+numpyliste=np.array([1,2,3])
+
+#python liste toplama
+print(liste+liste)
+
+#numpy liste toplama
+print(numpyliste+numpyliste)
+
+
+---------------------------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.array([1,2,3])
+print(numpyliste**2)
+print(np.sqrt(numpyliste)) #kökü
+print(np.log(numpyliste)) #logaritma
+print(np.exp(numpyliste))  #e üzeri sayi
+
+print(numpyliste[0])
+print(numpyliste[1])
+
+---------------------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(numpyliste[1][1])
+print(numpyliste[2][2])
+
+-------------------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.array([1,2,3])
+print(numpyliste.ndim) #dizinin boyutu
+print(numpyliste.dtype)
+
+--------------------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.array([1,2,3],dtype=np.float64)
+print(numpyliste.ndim) #dizinin boyutu
+print(numpyliste.dtype) #dizinin türü
+print(numpyliste.size) #dizinin eleman sayisi
+print(numpyliste.itemsize) #dizideki her bir eleman byte boyutu
+print(numpyliste.shape) #dizinin satir ve sütun sayisi
+
+----------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.arange(1,5,0.5)
+numpyliste2=np.linspace(1,5,5) #burada 5 dahil
+print(numpyliste)
+print(numpyliste2)
+
+----------------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.zeros((2,3)) #tüm elemanlari 0 olan dizi
+numpyliste2=np.ones((3,4))#tüm elemanlari 1 olan dizi
+numpyliste3=np.empty((5,6))#tüm elemanlari rastgele atan dizi
+print(numpyliste)
+print(numpyliste2)
+print(numpyliste3)
+
+-----------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.array([[1,2],[3,4],[5,6]])
+print(numpyliste.shape)
+print(numpyliste.reshape(2,3)) #dizinin satir ve sütununu yeniden sekillendirmeye yarar.
+print(numpyliste.ravel()) #dizini içindeki tüm elemanlari birlestirip tek bir dizi haline getiriyor.
+
+-----------------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.array([[1,2],[3,4],[5,6]])
+print(numpyliste.max())
+print(numpyliste.min())
+print(numpyliste.sum())
+print(np.average(numpyliste)) #ortalama
+print(numpyliste.sum(axis=0))#sütunlardaki elemanlarin toplami
+print(numpyliste.sum(axis=1)) #satirlardaki elemanlarin toplami
+print(np.sqrt(numpyliste)) #kök bulma
+print(np.std(numpyliste)) #standart sapma
+
+-----------------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.array([[1,2],[3,4]])
+numpyliste2=np.array([[5,6],[7,8]])
+print(numpyliste+numpyliste2)
+print(numpyliste*numpyliste2)
+
+----------------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(numpyliste[1,2])
+print(numpyliste[0:2,2])
+print(numpyliste[-1,0:2])
+
+--------------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.array([[1,2,3],[4,5,6],[7,8,9]])
+for e in numpyliste:
+    print(e)
+-------------------------------------------------------------
+
+import numpy as np
+
+numpyliste=np.array([[1,2,3],[4,5,6],[7,8,9]])
+for e in numpyliste.flat:
+    print(e)
+
+------------------------------------------------------------
