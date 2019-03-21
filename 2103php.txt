@@ -1,0 +1,91 @@
+<?php
+echo "Hello guys";
+//Açýklama-Comment
+/*
+Çok satýrlý açýklama
+*/
+$adi="Dicle";
+echo $adi;
+$soyadi="Yamanoðlu";
+echo $adi.$soyadi;
+/*
+$can;
+$Can;
+$cAn; Hepsi farklý
+*/
+
+$yas=35;
+$oran=3.14;
+$ad="Can";
+$durum=false;
+$arabalar=array("Volvo","Bmw","Porsche");
+?>
+
+------------------------------------------------
+
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+<form method="POST" action="kontrol.php">
+
+<label>Kullanýcý adý:</label>
+<input id="eposta" name="eposta" type="text"></br>
+
+<label>Þifre:</label>
+<input id="sifre" name="sifre" type="text">
+
+<input type="submit">
+
+</form>
+</body>
+
+
+
+<?php
+$eposta=$_POST["eposta"];
+$sifre=$_POST["sifre"];
+echo "Kullanýcý adý:".$eposta."Þifre:".$sifre;
+?>
+-----------------------------------------------
+
+<?php
+if ($_POST){
+	echo "Baðlantý yapýldý.";
+	if(isset($_POST["eposta"]))
+{
+	$eposta=$_POST["eposta"];
+}
+else{
+	echo "Eposta verisi gelmedi";
+}
+
+$sifre=$_POST["sifre"];
+echo "Kullanýcý adý:".$eposta."Þifre:".$sifre;
+
+}
+else{
+	"Baðlantý yapýlamadý.";
+}
+?>
+--------------------------------------------
+
+<?php
+if ($_POST){
+	echo "Baðlantý yapýldý.";
+	if(isset($_POST["eposta"])) //Verinin gelip gelmediðini kontrol ediyor.//
+{
+	$eposta=strip_tags(trim($_POST["eposta"]));
+}
+else{
+	echo "Eposta verisi gelmedi";
+}
+
+$sifre=$_POST["sifre"];
+echo "Kullanýcý adý:".$eposta."Þifre:".$sifre;
+
+}
+else{
+	"Baðlantý yapýlamadý.";
+}
+?>
